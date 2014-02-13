@@ -12,16 +12,18 @@
       get_template_part('templates/header');
     }
   ?>
-  <div class="row tpd-hdr">
+  <div class="row tpd-hdr container">
       <div class="tpd-hdr-1 col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <a href="/">
             <img src="/media/twin-peaks-digital-video-production.png" alt="Video Production by Twin Peaks Digital" class="tpd-logo" />
           </a>
       </div>
-      <div class="tpd-hdr-2 hidden-xs col-sm-6 col-md-6 col-lg-6">
-          <p class="callnow">Video Production Services</p>
-          <p><a href="tel:14807890619">480.789.0619</a></p>
-          <p class="ochre">Search box here</p>
+      <div class="tpd-hdr-2 col-sm-6 col-md-6 col-lg-6">
+          <p class="tagline hidden-xs">Video Production Services in Arizona</p>
+          <p><a class="hdr-phone" href="tel:14807890619">480.789.0619</a></p>
+          <div class="hidden-xs hdr-srch">
+            <?php get_search_form(); ?>
+          </div>
       </div>
   </div>
   <div class="wrap container" role="document">

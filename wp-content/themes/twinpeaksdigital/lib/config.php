@@ -12,7 +12,7 @@ add_theme_support('jquery-cdn');            // Enable to load jQuery from the Go
 /**
  * Configuration values
  */
-define('GOOGLE_ANALYTICS_ID', ''); // UA-XXXXX-Y
+define('UA-48028822-1', ''); // UA-XXXXX-Y
 define('POST_EXCERPT_LENGTH', 40);
 
 /**
@@ -56,7 +56,8 @@ function roots_display_sidebar() {
      */
     array(
       'is_404',
-      'is_front_page'
+      'is_front_page',
+      array('is_page', array('Portfolio', 'Gallery', 'About Us', 'Contact Us')),
     ),
     /**
      * Page template checks (via is_page_template())
