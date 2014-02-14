@@ -308,8 +308,12 @@
 // Menu position and menu carets
 .navbar-nav > li > .dropdown-menu {
   margin-top: 0;
+  background:darken(@ochre,10%);
   .border-top-radius(0);
 }
+
+ul.dropdown-menu li a{color:lighten(@ochre,30%);text-shadow:1px 1px 1spx rgba(0,0,0,0.2);} 
+
 // Menu position and menu caret support for dropups via extra dropup class
 .navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
   .border-bottom-radius(0);

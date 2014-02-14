@@ -57,14 +57,22 @@ function roots_display_sidebar() {
     array(
       'is_404',
       'is_front_page',
-      array('is_page', array('Portfolio', 'Gallery', 'About Us', 'Contact Us')),
+      array('is_wrapper_template', 
+        array( 
+          'archive-portfolio.php',
+          'single-portfolio.php',
+        )
+      )
     ),
     /**
      * Page template checks (via is_page_template())
      * Any of these page templates that return true won't show the sidebar
      */
     array(
-      'template-custom.php'
+      'template-custom.php',
+      'template-no-sidebar.php',
+      'archive-portfolio.php',
+      'single-portfolio.php',
     )
   );
 

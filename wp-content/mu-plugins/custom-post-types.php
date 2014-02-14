@@ -32,7 +32,7 @@ function portfolio_post_type(){
             'hierarchichal' => true,
             'supports' => true,
             'public' => true,
-            'menu_position' => 5,
+            'menu_position' => 20,
             'menu_icon' => plugins_url( 'icon-video.png', __FILE__ ),
             'has_archive' => true,
             'rewrite' => array('slug' => 'video-production-portfolio'),
@@ -57,9 +57,8 @@ function portfolio_fields (){
     ?>
     <p>
         <label>Video Embed Link</label><br />
-        <input size="65" name="video_link" id="video_link" value='<?php echo $video_link; ?>' />
+        <input size='70' name='video_link' id='video_link' value='<?php echo $video_link; ?>' />
     </p>
-
     <?php
 }
 
