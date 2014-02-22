@@ -3,12 +3,12 @@
         <?php get_template_part('templates/content', 'page'); ?>
     </div>
     <div class="fp-vid col-md-8">
-        <?php echo do_shortcode("[metaslider id=31]"); ?>
+        <?php echo do_shortcode("[metaslider id=21]"); ?>
     </div>
 </div>
 <div class="row fp-row2">
     <div class="fp-pics col-md-4 col-sm-4 hidden-xs">
-        <?php echo do_shortcode("[metaslider id=89]");?>
+        <?php echo do_shortcode("[metaslider id=76]");?>
     </div>
     <div class="fp-txt2 col-md-4 col-sm-4 col-xs-12">
         <h4>Video Production</h4>
