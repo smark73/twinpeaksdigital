@@ -9,7 +9,7 @@
 <?php while (have_posts()) : the_post(); ?>
 <article <?php post_class('portfolio'); ?> class="row">
     <div class="portfolio-single-vid col-md-6">
-        <?php $vid = get_post_custom_values('video_link'); echo $vid[0]; ?>
+        <iframe src="//player.vimeo.com/video/<?php $vid = get_post_custom_values('video_link');  echo $vid[0]; ?>" width="100%" height="100%" style="max-width:500px;width:100%;;min-height:281px;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
     <div class="col-md-6">
       <div class="entry-content">

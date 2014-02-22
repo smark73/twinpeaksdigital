@@ -16,7 +16,7 @@ function roots_widgets_init() {
   register_sidebar(array(
     'name'          => __('Services', 'roots'),
     'id'            => 'services-sidebar',
-    'before_widget' => '<section class="widget %1$s %2$s"><div class="widget-inner">',
+    'before_widget' => '<section class="widget %1$s %2$s"><div class="widget-inner services-sidebar">',
     'after_widget'  => '</div></section>',
     'before_title'  => '<h3>',
     'after_title'   => '</h3>',

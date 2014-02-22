@@ -46,7 +46,7 @@ function portfolio_post_type(){
 add_action( 'admin_init', 'add_portfolio_box' );
 
 function add_portfolio_box(){
-    add_meta_box('portfolio_video', 'Video Embed Link', 'portfolio_fields', 'portfolio', 'normal', 'core');
+    add_meta_box('portfolio_video', 'Vimeo Video ID', 'portfolio_fields', 'portfolio', 'normal', 'core');
 }
 
 //create custom fields 
@@ -56,8 +56,8 @@ function portfolio_fields (){
     $video_link = $custom['video_link'][0];
     ?>
     <p>
-        <label>Video Embed Link</label><br />
-        <input size='70' name='video_link' id='video_link' value='<?php echo $video_link; ?>' />
+        <label>Vimeo Video ID</label><br />
+        <input size='40' name='video_link' id='video_link' value='<?php echo $video_link; ?>' />
     </p>
     <?php
 }
@@ -68,5 +68,6 @@ add_action('publish_post', 'save_portfolio_attributes');
 
 function save_portfolio_attributes(){
     global $post;
-    update_post_meta($post->ID, "video_link", $_POST["video_link"]);
+    $v_id = intval($_POST["video_link"]);
+    update_post_meta($post->ID, "video_link", $v_id);
 }

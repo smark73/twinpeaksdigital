@@ -169,7 +169,7 @@
 @dropdown-bg:                    #fff;
 @dropdown-border:                rgba(0,0,0,.15);
 @dropdown-fallback-border:       #ccc;
-@dropdown-divider-bg:            #e5e5e5;
+@dropdown-divider-bg:            fade(@lt-brown,25%);
 
 @dropdown-link-active-color:     #fff;
 @dropdown-link-active-bg:        @component-active-bg;
@@ -527,12 +527,12 @@
 // Thumbnails
 // -------------------------
 @thumbnail-padding:           4px;
-@thumbnail-bg:                @body-bg;
-@thumbnail-border:            #ddd;
-@thumbnail-border-radius:     @border-radius-base;
+@thumbnail-bg:                transparent; //@gray-lighter;
+@thumbnail-border:            0;//#ddd;
+@thumbnail-border-radius:     0;//@border-radius-base;
 
-@thumbnail-caption-color:     @text-color;
-@thumbnail-caption-padding:   9px;
+@thumbnail-caption-color:     lighten(@text-color,25%);
+@thumbnail-caption-padding:   3px;
 
 
 // Wells
