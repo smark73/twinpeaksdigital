@@ -12,7 +12,7 @@
         <?php $slider2 = get_post_custom_values('photo_slider');  echo do_shortcode($slider2[0]);?>
     </div>
     <div class="fp-txt2 col-md-4 col-sm-4 col-xs-12">
-        <h4><?php $btm_hdr = get_post_custom_values('bottom_text_header');  echo $btm_hdr[0];?></h4>
+        <h4 class="terracotta"><?php $btm_hdr = get_post_custom_values('bottom_text_header');  echo $btm_hdr[0];?></h4>
         <?php $btm_txt = get_post_custom_values('bottom_text');  echo $btm_txt[0];?>
     </div>
     <?php endwhile; ?>
