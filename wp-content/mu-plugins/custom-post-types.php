@@ -43,11 +43,22 @@ function portfolio_post_type(){
 }
 
 //place custom fields on admin screen
-add_action( 'admin_init', 'add_portfolio_box' );
-
-function add_portfolio_box(){
-    add_meta_box('portfolio_video', 'Vimeo Video ID', 'portfolio_fields', 'portfolio', 'normal', 'core');
+function add_portfolio_box($post){
+    add_meta_box(
+            'portfolio_video',
+            __('Vimeo Video Id'),
+            'portfolio_fields',
+            'portfolio',
+            'normal',
+            'core'
+            );
 }
+
+add_action( 'add_meta_boxes_portfolio', 'add_portfolio_box' );
+
+//function add_portfolio_box(){
+   // add_meta_box('portfolio_video', 'Vimeo Video ID', 'portfolio_fields', 'portfolio', 'normal', 'core');
+//}
 
 //create custom fields 
 function portfolio_fields (){
