@@ -1,7 +1,7 @@
 <div class="row">
     <div class="portfolio-intro">
         <p>Experience Makes the Difference</p>
-        <p>For additional videos visit our <a href="https://vimeo.com/channels/42610" target="_blank">Vimeo channel</a> or our <a href="http://www.youtube.com/user/twinpeaksdigital" target="_blank">YouTube Channel</a></p>
+        <p>For additional videos visit our <a href="https://vimeo.com/channels/42610" target="_blank" class="terracotta bold">Vimeo channel</a> or our <a href="http://www.youtube.com/user/twinpeaksdigital" target="_blank" class="terracotta bold">YouTube Channel</a></p>
     </div>
     <div style="margin-left:2%">
         <?php get_template_part('templates/page', 'header'); ?>

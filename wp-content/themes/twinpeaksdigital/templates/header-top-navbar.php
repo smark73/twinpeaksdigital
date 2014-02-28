@@ -17,7 +17,7 @@
       ?>
       <div class="navbar-icons pull-right">
           <a href="http://www.facebook.com/pages/Twin-Peaks-Digital/107938599128" target="_blank" class="icon-fb"><img src="/media/icon-facebook.png" alt="Facebook Twin Peaks Digital"/></a>
-          <a href="https://plus.google.com/u/0/b/111869356554768492741/111869356554768492741/posts/p/pub" target="_blank" class="icon-gp"><img src="/media/icon-google-plus.png" alt="Google Plus Twin Peaks Digital"/></a>
+          <a href="https://plus.google.com/111869356554768492741/about" target="_blank" class="icon-gp"><img src="/media/icon-google-plus.png" alt="Google Plus Twin Peaks Digital"/></a>
           <a href="http://www.linkedin.com/pub/matthew-nelson/12/808/444" target="_blank" class="icon-li"><img src="/media/icon-linkedin.png" alt="LinkedIn Twin Peaks Digital"/></a>
           <a href="http://www.youtube.com/user/twinpeaksdigital" target="_blank" class="icon-yt"><img src="/media/icon-you-tube.png" alt="YouTube Channel for Twin Peaks Digital"/></a>
           <a href="https://vimeo.com/channels/42610" target="_blank" class="icon-vi"><img src="/media/icon-vimeo.png" alt="Vimeo Channel for Twin Peaks Digital"/></a>
