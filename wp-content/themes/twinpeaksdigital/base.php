@@ -20,8 +20,8 @@
           <a href="/">
             <img src="/media/twin-peaks-digital-video-production.png" alt="Video Production by Twin Peaks Digital" class="tpd-logo" />
           </a>
-          <p class="hidden-xs tagline"><?php $tagline = get_bloginfo('description'); echo $tagline?>  |  <a class="hdr-phone" href="tel:14807890619">480.789.0619</a></p>
-          <p class="hidden-sm hidden-md hidden-lg hidden-print tagline-xs">Video Production Services in Arizona<br/><a class="hdr-phone" href="tel:14807890619">480.789.0619</a></p>
+          <p class="hidden-xs tagline"><?php $tagline = get_bloginfo('description'); echo $tagline?> | <a class="hdr-phone" href="tel:14807890619">480.789.0619</a></p>
+          <p class="hidden-sm hidden-md hidden-lg hidden-print tagline-xs"><?php $tagline = get_bloginfo('description'); echo $tagline?><br/><a class="hdr-phone" href="tel:14807890619">480.789.0619</a></p>
       </div>
   </div>
   <div class="wrap container" role="document">
