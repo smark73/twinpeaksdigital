@@ -4,6 +4,16 @@
     </div>
     <?php while (have_posts()) : the_post(); ?>
     <div class="fp-vid col-md-8">
+        <?php
+            $tagline = get_post_custom_values('tagline_above_video');
+            if ($tagline[0] == '' || $tagline[0] == null || $tagline[0] == ' '){
+                //no tagline
+            } else {
+                $txt = $tagline[0];
+                $txt_above_video = "<h4>$txt</h4>";
+                echo $txt_above_video;
+            }
+        ?>
         <?php $slider1 = get_post_custom_values('video_slider');  echo do_shortcode($slider1[0]); ?>
     </div>
 </div>
