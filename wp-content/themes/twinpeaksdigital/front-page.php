@@ -10,7 +10,7 @@
                 //no tagline
             } else {
                 $txt = $tagline[0];
-                $txt_above_video = "<h4>$txt</h4>";
+                $txt_above_video = "$txt";
                 echo $txt_above_video;
             }
         ?>
