@@ -35,4 +35,4 @@ wp-content/plugins/*
 wp-content/themes/*
 !wp-content/themes/twinpeaksdigital
 
-/nbproject/private/
+/nbproject/*
