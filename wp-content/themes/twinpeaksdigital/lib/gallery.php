@@ -90,7 +90,7 @@ function roots_gallery($attr) {
     $output .= '<div class="' . $grid .'">' . $image;
     
     if (trim($attachment->post_excerpt)) {
-      $output .= '<div class="caption hidden">' . wptexturize($attachment->post_excerpt) . '</div>';
+      $output .= '<div class="caption">' . wptexturize($attachment->post_excerpt) . '</div>';
     }
     
     $output .= '</div>';
