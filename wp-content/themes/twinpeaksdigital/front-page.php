@@ -22,8 +22,18 @@
         <?php $slider2 = get_post_custom_values('photo_slider');  echo do_shortcode($slider2[0]);?>
     </div>
     <div class="fp-txt2 col-md-4 col-sm-4 col-xs-12">
-        <h4 class="terracotta"><?php $btm_hdr = get_post_custom_values('bottom_text_header');  echo $btm_hdr[0];?></h4>
-        <?php $btm_txt = get_post_custom_values('bottom_text');  echo $btm_txt[0];?>
+        <?php
+            //query the page with slug home-btm-p created for lower paragraph
+            $the_query = new WP_Query( 'pagename=home/home-btm-p' );
+            while( $the_query->have_posts()) : $the_query->the_post();
+            ?>
+        <h4 class="terracotta"><?php the_title(); ?></h4>
+        <?php the_content();?>
+        <?php endwhile; ?>
+        <?php
+            // Restore original Post Data
+            wp_reset_postdata();
+        ?>
     </div>
     <?php endwhile; ?>
     <div class="fp-news col-md-4 col-sm-4 col-xs-12">
