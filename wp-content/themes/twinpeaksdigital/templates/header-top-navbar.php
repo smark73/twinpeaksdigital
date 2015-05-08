@@ -15,7 +15,7 @@
           wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'nav navbar-nav'));
         endif;
       ?>
-      <div class="navbar-icons pull-right">
+      <div class="navbar-icons pull-right hidden-sm">
           <a href="http://www.facebook.com/pages/Twin-Peaks-Digital/107938599128" target="_blank" class="icon-fb"><img src="/media/icon-facebook.png" alt="Facebook Twin Peaks Digital"/></a>
           <a href="https://plus.google.com/111869356554768492741/about" target="_blank" class="icon-gp"><img src="/media/icon-google-plus.png" alt="Google Plus Twin Peaks Digital"/></a>
           <a href="http://www.linkedin.com/pub/matthew-nelson/12/808/444" target="_blank" class="icon-li"><img src="/media/icon-linkedin.png" alt="LinkedIn Twin Peaks Digital"/></a>
