@@ -228,7 +228,7 @@
       > li > a,
       .dropdown-header {
         padding: 15px 15px 5px 25px;
-        border-left:5px solid @brand-primary;
+        border-left:5px solid darken(@navbar-default-bg,10%);
         margin-left:15px;
       }
       > li > a {
@@ -314,11 +314,11 @@
 // Menu position and menu carets
 .navbar-nav > li > .dropdown-menu {
   margin-top: 0;
-  background:darken(@ochre,10%);
+  background: @navbar-default-link-active-bg;
   .border-top-radius(0);
 }
 
-ul.dropdown-menu li a{color:lighten(@ochre,30%);text-shadow:1px 1px 1spx rgba(0,0,0,0.2);} 
+ul.dropdown-menu li a{color:@dropdown-link-color;text-shadow:1px 1px 1spx rgba(0,0,0,0.2);} 
 
 // Menu position and menu caret support for dropups via extra dropup class
 .navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
