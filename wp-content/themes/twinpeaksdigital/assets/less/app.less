@@ -22,7 +22,7 @@ body{
 /* =============================================================================
    Header
    ========================================================================== */
-header{}
+header{margin:0 auto;padding:0}
 .banner { border: 1px solid transparent;}//keeps it tidy when logged in and both header navbars display
 .tpd-hdr{
     margin:0 auto;
@@ -30,14 +30,7 @@ header{}
     width:100%;
     max-height:195px;
     overflow:hidden;
-    background: #795548; /* Old browsers */
-    background: -moz-linear-gradient(top,  #795548 0%, #a08a6e 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#795548), color-stop(100%,#a08a6e)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #795548 0%,#a08a6e 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #795548 0%,#a08a6e 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #795548 0%,#a08a6e 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  #795548 0%,#a08a6e 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#795548', endColorstr='#a08a6e',GradientType=0 ); /* IE6-9 */
+    background: #4f3218;
 }
 .tpd-hdr1 {text-align:left;padding-left:0;margin-left:0}
 .tpd-hdr2 {padding:0;text-align:center;margin:auto}
@@ -60,7 +53,7 @@ button.search-submit:hover, button.search-submit:active{color:@ochre;background-
 .container{}
 
 // main text and video slider
-.fp-row1{padding:2% 0}
+.fp-row1{padding:1%}
 .fp-txt1{}
 .fp-txt1 > * {margin-top:0;padding-top:0}
 .fp-vid{text-align:center;margin:auto}
@@ -119,7 +112,7 @@ a.contact-href{font-size:1.2em}
    ========================================================================== */
 header.navbar { font-size:1.1em;font-weight:500;}
 div.navbar-icons {padding:12px 0 10px;}
-.navbar-icons a{background:#ca374a;height:30px;width:30px;display:inline-block;padding:0;margin:0}
+.navbar-icons a{background:@ochre;height:30px;width:30px;display:inline-block;padding:0;margin:0}
 .navbar-icons img{ width:30px;height:30px;border:0;text-decoration:none  }
 //.navbar-icons a:hover{background:#705125;}
 a.icon-fb:hover{background:#214285}
@@ -157,10 +150,10 @@ a.icon-vi:hover{background:#5bc8ff}
 
 .content-info { }
 footer{}
-footer.pg-ftr{background:#795548;min-height:100px}
+footer.pg-ftr{background:@brand-primary;min-height:100px}
 .ftr-col-a{}
 .ftr-col-b{}
-p.copyright {color:#bcaa94;margin:2%;}
+p.copyright {color:@white;margin:2%;}
 
 
 
