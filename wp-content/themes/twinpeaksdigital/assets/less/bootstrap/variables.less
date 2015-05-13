@@ -18,7 +18,7 @@
 // Brand colors
 // -------------------------
 
-@brand-primary:         #2a1b19;
+@brand-primary:         #363f46;
 @brand-success:         #5cb85c;
 @brand-info:            #5bc0de;
 @brand-warning:         #f0ad4e;
@@ -168,17 +168,17 @@
 // Dropdowns
 // -------------------------
 
-@dropdown-bg:                    #9b3223;
+@dropdown-bg:                    darken(@navbar-default-link-active-bg, 10%);
 @dropdown-border:                @dropdown-bg;
 @dropdown-fallback-border:       @dropdown-bg;
 @dropdown-divider-bg:            @dropdown-bg;
 
 @dropdown-link-active-color:     @white;
-@dropdown-link-active-bg:        @dropdown-bg;
+@dropdown-link-active-bg:        #8bc24a;
 
 @dropdown-link-color:               @white;
 @dropdown-link-hover-color:      @white;
-@dropdown-link-hover-bg:         @dropdown-bg;
+@dropdown-link-hover-bg:         @dropdown-link-active-bg;
 
 @dropdown-link-disabled-color:   @gray-light;
 
@@ -246,19 +246,19 @@
 // Basics of a navbar
 @navbar-height:                    60px;
 @navbar-margin-bottom:           2px; //@line-height-computed;
-@navbar-default-color:             @dk-brown;
+@navbar-default-color:              #fff;
 @navbar-default-bg:                @brand-primary; //#be661d;
-@navbar-default-border:           transparent;
+@navbar-default-border:           @navbar-default-bg;
 @navbar-border-radius:             @border-radius-base;
 @navbar-padding-horizontal:        floor(@grid-gutter-width / 2);
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
 
 // Navbar links
-@navbar-default-link-color:                @white;
+@navbar-default-link-color:                #ccdb38;
 @navbar-default-link-hover-color:          @white;
 @navbar-default-link-hover-bg:             @navbar-default-link-active-bg;
 @navbar-default-link-active-color:         @white; //@white;
-@navbar-default-link-active-bg:            #cc422e;
+@navbar-default-link-active-bg:            #02a8f4;
 @navbar-default-link-disabled-color:       #ccc;
 @navbar-default-link-disabled-bg:          transparent;
 
