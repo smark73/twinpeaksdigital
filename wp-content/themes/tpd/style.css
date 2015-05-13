@@ -122,10 +122,10 @@ input[type="search"] {
 
 /* # Defaults
 ---------------------------------------------------------------------------------------------------- */
-.home-top-wrap{background:#363f46;padding-top:1% }
-.home-top{width:80%;margin:auto}
-.home-left{text-align:center;margin:auto;padding-top:2%;color:#fff;}
-.home-right{}
+.home-top-wrap{background:#795549;padding:0 }
+.home-top{width:100%;margin:0 auto;padding:0}
+.home-left{text-align:center;margin-left:2%;padding:2%;color:#fff;}
+.home-right{color:#ffffff;width:100%;height:100%;margin:0;padding:0}
 
 .resp-vid-wrap{position:relative;padding-bottom:56.25%; /* 16:9 */ padding-top:25px; height:0}
 .resp-vid-wrap iframe{ position:absolute;top:0;left:0;width:100%;height:100%;}
@@ -177,7 +177,7 @@ a {
 }
 
 a:hover {
-	color: #333;
+	color: #ba8c2e;
 }
 
 p {
