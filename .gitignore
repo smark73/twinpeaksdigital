@@ -29,10 +29,12 @@ wp-content/plugins/*
 # !wp-content/plugins/my-single-file-plugin.php
 # !wp-content/plugins/my-directory-plugin/
 !wp-content/plugins/twinpeaksdigital
+
  
 # Ignore everything in the "themes" directory, except the themes you
 # specify (see the commented-out example for a hint on how to do this.)
 wp-content/themes/*
 !wp-content/themes/twinpeaksdigital
+!wp-content/themes/tpd
 
 /nbproject/*
