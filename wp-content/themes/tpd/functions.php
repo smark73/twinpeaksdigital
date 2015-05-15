@@ -199,6 +199,15 @@ function child_theme_setup(){
         <?php
     }
     
+    // GALLERY PAGE WIDTH for Tiled Gallery
+    function gallery_page_content_width() {
+        if ( is_page( 'our-work/gallery' ) ) {
+            global $content_width;
+            $content_width = 800;
+        }
+    }
+    add_action( 'get_header', 'gallery_page_content_width' );
+    
     // CUSTOMIZE GRID LOOP
     // http://www.billerickson.net/a-better-and-easier-grid-loop/
 //    add_action( 'pre_get_posts', 'child_grid_loop_query_args' );
