@@ -138,6 +138,15 @@ input[type="search"] {
 .tagline h1, .tagline h2{text-shadow:2px 2px 2px #795549;}
 .vert-sep{font-size:0.8em;color:rgba(0,0,0,0.25);}
 
+div.navbar-icons-top {padding:12px 0 10px;}
+.navbar-icons-top a{background:#8bc24a;height:34px;width:34px;display:inline-block;padding:0;margin:2px}
+.navbar-icons-top img{ width:34px;height:34px;border:0;text-decoration:none  }
+a.icon-fb:hover{background:#214285}
+a.icon-gp:hover{background:#d2492c}
+a.icon-li:hover{background:#02669a}
+a.icon-yt:hover{background:#eb2429}
+a.icon-vi:hover{background:#5bc8ff}
+
 .about-us{}
 .about-sidebar{}
 .about-sidebar ul, .about-sidebar ul li, .cam-credits {list-style-type: none; list-style-image: none;}
@@ -1596,12 +1605,13 @@ nav {
             .wrap {
                 max-width: 100%;
             }
-            .site-header {
+/*            .site-header {
                     background-image: url(images/hdr-pic-flip.png);
                     background-position:top right;
                     background-repeat: no-repeat;
                     background-size:contain;
-            }
+            }*/
+
 }
 
 @media only screen and (max-width: 1200px) {
@@ -1639,12 +1649,12 @@ nav {
 	.footer-widgets-1 {
 		margin-right: 30px;
 	}
-            .site-header {
+/*            .site-header {
                     background-image: url(images/hdr-pic-flip.png);
                     background-position:top right;
                     background-repeat: no-repeat;
                     background-size:contain;
-            }
+            }*/
 
 }
 
@@ -1714,9 +1724,9 @@ nav {
 
             .tagline h1 {font-size:1.5em}
             .tagline h2 {font-size:1.5em}
-            .site-header {
+/*            .site-header {
                     background-image: none;
-            }
+            }*/
 }
 
 @media only screen and (max-width: 800px) {
@@ -1768,9 +1778,10 @@ nav {
         
             .tagline h1 {font-size:1.5em;text-align:center;margin:auto}
             .tagline h2 {font-size:1.5em;text-align:center;margin:auto}
-            .site-header {
+/*            .site-header {
                     background-image: none;
-            }
+            }*/
+            div.navbar-icons-top {padding:12px 0 10px;margin:auto;text-align:center;}
 }
 
 @media only screen and (max-width: 400px) {
@@ -1783,9 +1794,9 @@ nav {
 
             .tagline h1 {font-size:1.2em;text-align:center;margin:auto}
             .tagline h2 {font-size:1.2em;text-align:center;margin:auto}
-            .site-header {
+/*            .site-header {
                     background-image: none;
-            }
+            }*/
 }
 
 /* MEDIA QUERY DEBUG ASSISTANCE */
