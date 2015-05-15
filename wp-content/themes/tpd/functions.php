@@ -159,7 +159,7 @@ function child_theme_setup(){
     function our_work_change_sidebar() {
         if ( is_page('our-work')) {
             remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
-            add_action( 'genesis_sidebar', 'about_do_sidebar' );
+            add_action( 'genesis_sidebar', 'our_work_do_sidebar' );
         }
     }
     function our_work_do_sidebar(){
