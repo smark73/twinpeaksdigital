@@ -55,80 +55,193 @@ function child_theme_setup(){
     add_theme_support( 'custom-background' );
     //* Add support for 3-column footer widgets
     add_theme_support( 'genesis-footer-widgets', 3 );
+    
+    //---------- FAVICON-------
+    add_filter( 'genesis_pre_load_favicon', 'child_favicon_filter' );
+    function child_favicon_filter( $favicon_url ) {
+            $our_favicon = get_stylesheet_directory_uri() . "/images/favicon.ico";
+            return $our_favicon;
+    }
+    //--------END FAVICON------------
 
-
+    //-----REGISTER RESPONSIVE MENU SCRIPT---------
+    /**
+    * Enqueue responsive javascript
+    * @author Ozzy Rodriguez
+    * @todo Change 'prefix' to your theme's prefix
+    */
+    add_action( 'wp_enqueue_scripts', 'child_enqueue_scripts' );
+    function child_enqueue_scripts() {
+	wp_enqueue_script( 'child-responsive-menu', get_stylesheet_directory_uri() . '/lib/js/responsive-menu.js', array( 'jquery' ), '1.0.0', true );
+    }
+    //------ END RESPONSIVE MENU------------
+    
     //* Reposition the primary navigation menu
     remove_action( 'genesis_after_header', 'genesis_do_nav' );
     add_action( 'genesis_before_header', 'genesis_do_nav' );
 
-    // REGISTER WIDGETS
+    // ----REGISTER WIDGETS-------
     genesis_register_sidebar( array(
-        'id' => 'home-slider',
-        'name' => 'Home Slider',
-        'description' => 'Widget Area to hold Home Page Slider ',
+        'id' => 'home-video-slider',
+        'name' => 'Home Video Slider',
+        'description' => 'Widget Area to hold Home Page Video Slider ',
     ));
+    genesis_register_sidebar( array(
+        'id' => 'home-photo-slider',
+        'name' => 'Home Photo Slider',
+        'description' => 'Widget Area to hold Home Page Photo Slider ',
+    ));
+    // -----END WIDGETS ------
     
-    // HEADER Customization
+    // -----REGISTER CUSTOM SIDEBARS
+    
+    genesis_register_sidebar(array(
+        'name'=>'Services Sidebar',
+        'id' => 'services-sidebar',
+        'description' => 'Sidebar for the services page',
+        'before_widget' => '<div id="%1$s"><div class="widget services-sidebar %2$s">',
+        'after_widget'  => "</div></div>\n",
+        'before_title'  => '<h4><span>',
+        'after_title'   => "</span></h4>\n"
+    ));
+    add_action('get_header','services_change_sidebar');
+    function services_change_sidebar() {
+        if ( is_page( array(
+                'services',
+                'services/video-production-phoenix-az',
+                'services/scottsdale-video-production',
+                'services/flagstaff-sedona-video-production',
+                'services/commercials',
+                'services/corporate',
+                'services/documentaries',
+                'services/rates',
+                'services/equipment',
+                )
+            )) {
+            remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
+            add_action( 'genesis_sidebar', 'services_do_sidebar' );
+        }
+    }
+    function services_do_sidebar(){
+        dynamic_sidebar( 'services-sidebar');
+    }
+    
+    genesis_register_sidebar(array(
+        'name'=>'About Sidebar',
+        'id' => 'about-sidebar',
+        'description' => 'Sidebar for the about page',
+        'before_widget' => '<div id="%1$s"><div class="widget services-sidebar %2$s">',
+        'after_widget'  => "</div></div>\n",
+        'before_title'  => '<h4><span>',
+        'after_title'   => "</span></h4>\n"
+    ));
+    add_action('get_header','about_change_sidebar');
+    function about_change_sidebar() {
+        if ( is_page('about-twin-peaks-digital')) {
+            remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
+            add_action( 'genesis_sidebar', 'about_do_sidebar' );
+        }
+    }
+    function about_do_sidebar(){
+        dynamic_sidebar( 'about-sidebar');
+    }
+    
+    //----END SIDEBARS ------
+    
+    //-----HEADER Customization------
     remove_action( 'genesis_header', 'genesis_do_header' );
     add_action( 'genesis_header', 'child_custom_header' );
     function child_custom_header() {
         ?>
-        <div class="pr-site-header">
-            <a href="/" title="Paladin Radio - Freelance Sports Engineering">
-                   <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/paladin-radio-black.png" style="height:auto;width:auto;margin:auto;" alt="Paladin Radio - Freelance Sports Audio Engineering">
-             </a>
-            <p class="logo-tag"><?php echo get_bloginfo('description');?></p>
+        <div>
+            <section class="tpd-logo one-third first">
+                <a href="/" title="Twin Peaks Digital Video Production">
+                       <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/twin-peaks-digital-video-production.png" alt="Twin Peaks Digital Video Production" class="tpd-logo">
+                 </a>
+            </section>
+            <section class="tagline two-thirds">
+                <h1><?php echo get_bloginfo('description');?></h1>
+                <h2><a href="/services/video-production-phoenix-az/">Phoenix</a>  <span class="vert-sep">|</span>  <a href="/services/scottsdale-video-production/">Scottsdale</a>  <span class="vert-sep">|</span>  <a href="/services/flagstaff-sedona-video-production/">Flagstaff</a></h2>
+            </section>
         </div>
        <?php
+    }
+     //-----END HEADER Customization-------
+    
+    // FOOTER Customization
+    remove_action( 'genesis_footer', 'genesis_do_footer' );
+    add_action( 'genesis_footer', 'paladin_custom_footer' );
+    function paladin_custom_footer() {
+        ?>
+        <p class="copyright">
+            &copy; Copyright 2015 <a href="http://twinpeaksdigital.com/">Twin Peaks Digital</a> &middot; All Rights Reserved &middot; An <a href="http://ambitionsweb.com" target="_blank" title="Ambitions Website Design">Ambitions Web</a> Project
+        </p>
+        <?php
     }
     
     // CUSTOMIZE GRID LOOP
     // http://www.billerickson.net/a-better-and-easier-grid-loop/
-    add_action( 'pre_get_posts', 'child_grid_loop_query_args' );
-
-    function child_grid_loop_query_args( $query ) {
-        //If no query is specified, grab the main query
-        global $wp_query;
-        if( !isset( $query ) || empty( $query ) || !is_object( $query ) ) {
-                $query = $wp_query;
-        }
-        
-        // set the query loop  to only show 3 posts on home
-        if( $query->is_main_query() && is_home() ) {
-                $query->set( 'posts_per_page', 9 );
-                $query->set('post_type', 'portfolio');
-                //$query->set('paged', 0);
-        } //else {
-            //echo "change your settings in 'customize/static front page' to latest posts for the grid to work";
-        //}
-    }
+//    add_action( 'pre_get_posts', 'child_grid_loop_query_args' );
+//
+//    function child_grid_loop_query_args( $query ) {
+//        //If no query is specified, grab the main query
+//        global $wp_query;
+//        if( !isset( $query ) || empty( $query ) || !is_object( $query ) ) {
+//                $query = $wp_query;
+//        }
+//        
+//        // set the query loop  to only show 3 posts on home
+//        if( $query->is_main_query() && is_page( 'video-production-portfolio' ) ) {
+//                //$query->set( 'posts_per_page', 9 );
+//                $query->set('post_type', 'portfolio');
+//                //$query->set('paged', 0);
+//        } //else {
+//            //echo "change your settings in 'customize/static front page' to latest posts for the grid to work";
+//        //}
+//    }
     
     // grid loop classes on posts
-    function home_grid_post_class( $classes ) {
-            global $wp_query;
-            //if not main query return or not front page
-            if( ! $wp_query->is_main_query() || ! is_front_page() ) {
-                    return $classes;
-            }
-
-            // if main query add our grid classes then return
-            $classes[] = 'one-third';
-            if( 0 == $wp_query->current_post || 0 == $wp_query->current_post % 3 ) {
-                    $classes[] = 'first';
-            }
-            return $classes;
-    }
-    add_filter( 'post_class', 'home_grid_post_class' );
+//    function custom_grid_post_class( $classes ) {
+//            global $wp_query;
+//            //if not main query return or not front page
+//            if( ! $wp_query->is_main_query() || ! is_post_type_archive( 'portfolio' ) ) {
+//                    return $classes;
+//            }
+//
+//            // if main query add our grid classes then return
+//            $classes[] = 'one-third';
+//            if( 0 == $wp_query->current_post || 0 == $wp_query->current_post % 3 ) {
+//                    $classes[] = 'first';
+//            }
+//            return $classes;
+//    }
+//    add_filter( 'post_class', 'custom_grid_post_class' );
     
     
-    // CUSTOM GRID LOOP VIDEO INSTEAD OF IMAGE
-    add_filter( 'genesis_post_info', 'home_grid_loop_video' );
-    function home_grid_loop_video( ){
-        global $wp_query;
-        $video = get_post_custom_values('video_link');
-        echo '<div class="resp-vid-wrap">
-                        <iframe src="//player.vimeo.com/video/' . $video[0] . ' frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="width:100%;height:auto;"></iframe>
-                </div>';
-    }
+    //CUSTOM GRID LOOP VIDEO INSTEAD OF IMAGE
+//    add_filter( 'genesis_post_info', 'portfolio_grid_loop_video' );
+//    function portfolio_grid_loop_video( ){
+//        //global $wp_query;
+//        //$wp_query->the_post();
+//
+//        
+//        //$video = get_post_custom_values( 'video_link', $wp_query->post->ID);
+//
+//        //echo $wp_query->post_type;
+//        
+//        if ( is_singular( 'portfolio' ) ){
+//
+//            global $wp_query;
+//            $wp_query->the_post();
+//            $vid_id = $post[0]->ID;
+//            print_r($vid_id);
+//            $video = get_post_custom_values( 'video_link', $vid_id);
+//
+//
+//            echo '<div class="resp-vid-wrap">
+//                            <iframe src="//player.vimeo.com/video/' . $video[0] . '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+//                    </div>';
+//        }
+//    }
     
 }
