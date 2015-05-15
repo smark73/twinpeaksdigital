@@ -80,7 +80,7 @@ function child_theme_setup(){
     remove_action( 'genesis_after_header', 'genesis_do_nav' );
     add_action( 'genesis_before_header', 'genesis_do_nav' );
 
-    // ----REGISTER WIDGETS-------
+    // ----REGISTER WIDGETS -------
     genesis_register_sidebar( array(
         'id' => 'home-video-slider',
         'name' => 'Home Video Slider',
@@ -144,6 +144,26 @@ function child_theme_setup(){
     }
     function about_do_sidebar(){
         dynamic_sidebar( 'about-sidebar');
+    }
+    
+    genesis_register_sidebar(array(
+        'name'=>'Our Work Sidebar',
+        'id' => 'our-work-sidebar',
+        'description' => 'Sidebar for the our work page',
+        'before_widget' => '<div id="%1$s"><div class="widget services-sidebar %2$s">',
+        'after_widget'  => "</div></div>\n",
+        'before_title'  => '<h4><span>',
+        'after_title'   => "</span></h4>\n"
+    ));
+    add_action('get_header','our_work_change_sidebar');
+    function our_work_change_sidebar() {
+        if ( is_page('our-work')) {
+            remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
+            add_action( 'genesis_sidebar', 'about_do_sidebar' );
+        }
+    }
+    function our_work_do_sidebar(){
+        dynamic_sidebar( 'our-work-sidebar');
     }
     
     //----END SIDEBARS ------
