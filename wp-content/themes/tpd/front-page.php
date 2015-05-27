@@ -78,9 +78,13 @@ function child_home_loop() {
                     wp_reset_query();
 
                 ?>
-                <br class="clearfix">
             </div>
+            <br class="clearfix">
         </div>
+        <div class="client-strip">
+            <img src="<?php echo get_stylesheet_directory_uri();?>/images/client-logos.jpg" alt="Clients of Twin Peaks Digital">
+        </div>
+
     </div><!--home-top-wrap-->
     
     <div class="wrap home-btm-wrap">
