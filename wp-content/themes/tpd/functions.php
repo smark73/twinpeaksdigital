@@ -181,11 +181,10 @@ function child_theme_setup(){
             </section>
             <section class="tagline two-thirds second">
                 <div clas="wrap">
-                    <section class="two-thirds first">
-                    <h1><?php echo get_bloginfo('description');?></h1>
-                    <h2><a href="/services/video-production-phoenix-az/">Phoenix</a>  <span class="vert-sep">|</span>  <a href="/services/scottsdale-video-production/">Scottsdale</a>  <span class="vert-sep">|</span>  <a href="/services/flagstaff-sedona-video-production/">Flagstaff</a></h2>
-                    </section>
-                    
+                    <div class="two-thirds first">
+                        <h1><?php echo get_bloginfo('description');?></h1>
+                        <h2><a href="/services/video-production-phoenix-az/">Phoenix</a>  <span class="vert-sep">|</span>  <a href="/services/scottsdale-video-production/">Scottsdale</a>  <span class="vert-sep">|</span>  <a href="/services/flagstaff-sedona-video-production/">Flagstaff</a></h2>
+                    </div>
                     <div class="one-third second navbar-icons-top">
                         <a href="http://www.facebook.com/pages/Twin-Peaks-Digital/107938599128" target="_blank" class="icon-fb"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-facebook.png" alt="Facebook Twin Peaks Digital"/></a>
                         <a href="https://plus.google.com/111869356554768492741/about" target="_blank" class="icon-gp"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-google-plus.png" alt="Google Plus Twin Peaks Digital"/></a>
@@ -193,8 +192,8 @@ function child_theme_setup(){
                         <a href="http://www.youtube.com/user/twinpeaksdigital" target="_blank" class="icon-yt"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-you-tube.png" alt="YouTube Channel for Twin Peaks Digital"/></a>
                         <a href="https://vimeo.com/channels/42610" target="_blank" class="icon-vi"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-vimeo.png" alt="Vimeo Channel for Twin Peaks Digital"/></a>
                     </div>
-                    </section>
                 </div>
+            </section>
         </div>
        <?php
     }
