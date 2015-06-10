@@ -135,7 +135,7 @@ input[type="search"] {
 
 .tagline {vertical-align:middle;margin:1% auto}
 .tagline h1{color:#ded9c4;vertical-align:middle}
-.tagline h1, .tagline h2{text-shadow:2px 2px 2px #795549;}
+.tagline h1, .tagline h2{text-shadow:2px 2px 2px rgba(0,0,0,0.2);}
 .vert-sep{font-size:0.8em;color:rgba(0,0,0,0.25);}
 
 div.navbar-icons-top {padding:12px 0 10px;}
