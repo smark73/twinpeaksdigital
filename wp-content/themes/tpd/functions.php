@@ -173,17 +173,32 @@ function child_theme_setup(){
     add_action( 'genesis_header', 'child_custom_header' );
     function child_custom_header() {
         ?>
-        <div>
+        <div class="tpd-hdr <?php if( ! is_front_page() ) { echo 'subpg-hdr'; } ?>">
             <section class="tpd-logo one-third first">
                 <a href="/" title="Twin Peaks Digital Video Production">
                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/twin-peaks-digital-video-production.png" alt="Twin Peaks Digital Video Production" class="tpd-logo">
                  </a>
             </section>
-            <section class="tagline two-thirds second">
-                <div clas="wrap">
-                    <div class="two-thirds first">
-                        <h1><?php echo get_bloginfo('description');?></h1>
-                        <h2><a href="/services/video-production-phoenix-az/">Phoenix</a>  <span class="vert-sep">|</span>  <a href="/services/scottsdale-video-production/">Scottsdale</a>  <span class="vert-sep">|</span>  <a href="/services/flagstaff-sedona-video-production/">Flagstaff</a></h2>
+            <section class="two-thirds second">
+                <div class="wrap">
+                    <div class="two-thirds first tagline-wrap">
+                        
+                        <?php
+                            if ( is_front_page() ){
+                                                 // HOME PAGE
+                                                 echo "<h1>" . get_bloginfo('description') . "</h1>";
+                                                 echo '<h2><a href="/services/video-production-phoenix-az/">Phoenix</a>  <span class="vert-sep">|</span>  <a href="/services/scottsdale-video-production/">Scottsdale</a>  <span class="vert-sep">|</span>  <a href="/services/flagstaff-sedona-video-production/">Flagstaff</a></h2>';
+
+                                         } elseif ( get_post_type() == "portfolio" ){
+                                                 // PORTOLIO CPT (doesn't fit into above or below)
+                                                 echo "<h1>Video Production Portfolio</h1>";
+
+                                         } else {
+                                                 // DEFAULT
+                                                 the_title( "<h1>", "</h1>");
+                                         }
+                        ?>
+
                     </div>
                     <div class="one-third second navbar-icons-top">
                         <a href="http://www.facebook.com/pages/Twin-Peaks-Digital/107938599128" target="_blank" class="icon-fb"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icon-facebook.png" alt="Facebook Twin Peaks Digital"/></a>
@@ -201,8 +216,8 @@ function child_theme_setup(){
     
     // FOOTER Customization
     remove_action( 'genesis_footer', 'genesis_do_footer' );
-    add_action( 'genesis_footer', 'paladin_custom_footer' );
-    function paladin_custom_footer() {
+    add_action( 'genesis_footer', 'child_custom_footer' );
+    function child_custom_footer() {
         ?>
         <p class="copyright">
             &copy; Copyright 2015 <a href="http://twinpeaksdigital.com/">Twin Peaks Digital</a> &middot; All Rights Reserved &middot; An <a href="http://ambitionsweb.com" target="_blank" title="Ambitions Website Design">Ambitions Web</a> Project

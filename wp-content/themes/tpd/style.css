@@ -133,9 +133,12 @@ input[type="search"] {
 
 .tpd-logo{margin:auto;text-align:center}
 
-.tagline {vertical-align:middle;margin:1% auto}
-.tagline h1{color:#ded9c4;vertical-align:middle}
-.tagline h1, .tagline h2{text-shadow:2px 2px 2px rgba(0,0,0,0.2);}
+.subpg-hdr { vertical-align:middle;}
+.tpd-hdr .second .wrap {margin-bottom:0;padding-bottom:0;}
+
+.tagline-wrap {vertical-align:middle;margin:1% auto}
+.tagline-wrap h1{color:#ded9c4;vertical-align:middle}
+.tagline-wrap h1, .tagline-wrap h2{text-shadow:2px 2px 2px rgba(0,0,0,0.2);}
 .vert-sep{font-size:0.8em;color:rgba(0,0,0,0.25);}
 
 div.navbar-icons-top {padding:12px 0 10px;}
@@ -1610,7 +1613,7 @@ nav {
 @media only screen and (min-width: 1201px) {
     
             .home-top{}
-            div.tagline span {
+            div.tagline-wrap span {
                 font-size:1.1em;
             }
             .site-inner { padding-top:0 }
@@ -1734,8 +1737,8 @@ nav {
 		margin-right: 0;
 	}
 
-            .tagline h1 {font-size:1.5em}
-            .tagline h2 {font-size:1.5em}
+            .tagline-wrap h1 {font-size:1.5em}
+            .tagline-wrap h2 {font-size:1.5em}
 /*            .site-header {
                     background-image: none;
             }*/
@@ -1787,9 +1790,9 @@ nav {
 	.sidebar .widget.enews-widget {
 		padding: 40px;
 	}
-        
-            .tagline h1 {font-size:1.5em;text-align:center;margin:auto}
-            .tagline h2 {font-size:1.5em;text-align:center;margin:auto}
+            .tpd-logo img{max-width:250px;margin:0 auto -20px;}
+            .tagline-wrap h1 {font-size:1.5em;text-align:center;margin:auto}
+            .tagline-wrap h2 {font-size:1.5em;text-align:center;margin:auto}
 /*            .site-header {
                     background-image: none;
             }*/
@@ -1804,8 +1807,8 @@ nav {
             .content { margin:auto;}
             .home-top-wrap{padding-top:2%}
 
-            .tagline h1 {font-size:1.2em;text-align:center;margin:auto}
-            .tagline h2 {font-size:1.2em;text-align:center;margin:auto}
+            .tagline-wrap h1 {font-size:1.2em;text-align:center;margin:auto}
+            .tagline-wrap h2 {font-size:1.2em;text-align:center;margin:auto}
 /*            .site-header {
                     background-image: none;
             }*/
