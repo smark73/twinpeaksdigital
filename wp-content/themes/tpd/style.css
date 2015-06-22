@@ -161,6 +161,9 @@ a.icon-vi:hover{background:#5bc8ff}
     padding:1% 0;
 }
 
+.portfolio-title-link{font-size:0.8em;}
+.portfolio-link-view-full{color:black;word-break:keep-all;}
+
 .resp-vid-wrap{position:relative;padding-bottom:56.25%; /* 16:9 */ padding-top:25px; height:0;margin:1% auto 2% auto;}
 .resp-vid-wrap iframe{ position:absolute;top:0;left:0;width:100%;height:100%;}
 

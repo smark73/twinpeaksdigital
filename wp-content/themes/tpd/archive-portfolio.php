@@ -52,10 +52,22 @@ function tpd_portfolio_video() {
     $video = get_post_custom_values('video_link');
     echo '<div class="resp-vid-wrap">
                     <iframe src="//player.vimeo.com/video/' . $video[0] . '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen ></iframe>
-            </div>';
+            </div></a>';
 }
 add_action( 'genesis_entry_content', 'tpd_portfolio_video' );
 add_filter( 'genesis_pre_get_option_content_archive_thumbnail', '__return_false' );
+
+
+//customize the _do_post_title function
+function tpd_do_post_title() {
+  $title = apply_filters( 'genesis_post_title_text', get_the_title() );
+  
+  //* Link it, if necessary
+  if ( ! is_singular() && apply_filters( 'genesis_link_post_title', true ) ) {
+    $title = sprintf( '<a href="%s" rel="bookmark" class="portfolio-title-link">%s <span class="portfolio-link-view-full">| View Full&raquo;</span></a>', get_permalink(), $title );
+  }
+  echo $title;
+}
 
 // Move Title below Image
 remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
@@ -63,7 +75,7 @@ remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 )
 remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
 add_action( 'genesis_entry_footer', 'genesis_entry_header_markup_open', 5 );
 add_action( 'genesis_entry_footer', 'genesis_entry_header_markup_close', 15 );
-add_action( 'genesis_entry_footer', 'genesis_do_post_title' );
+add_action( 'genesis_entry_footer', 'tpd_do_post_title' );
 
 
 genesis();
