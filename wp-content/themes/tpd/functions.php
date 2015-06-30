@@ -56,6 +56,8 @@ function child_theme_setup(){
     //* Add support for 3-column footer widgets
     add_theme_support( 'genesis-footer-widgets', 3 );
     
+    
+    
     //---------- FAVICON-------
     add_filter( 'genesis_pre_load_favicon', 'child_favicon_filter' );
     function child_favicon_filter( $favicon_url ) {
@@ -64,6 +66,23 @@ function child_theme_setup(){
     }
     //--------END FAVICON------------
 
+    
+    //------- HEAD META ---------
+    //* Add Viewport meta tag for mobile browsers (requires HTML5 theme support)
+    add_theme_support( 'genesis-responsive-viewport' );
+    
+    add_action( 'genesis_meta', 'child_meta_info' );
+    function child_meta_info(){
+        ?>
+        <meta name="author" content="Twin Peaks Digital">
+        <meta name="dcterms.dateCopyrighted" content="2000">
+        <meta name="dcterms.rights" content="All Rights Reserved">
+        <meta name="dcterms.rightsHolder" content="Twin Peaks Digital">
+        <?php
+    }
+    //--------  END HEAD META ---------
+    
+    
     //-----REGISTER RESPONSIVE MENU SCRIPT---------
     /**
     * Enqueue responsive javascript
@@ -76,10 +95,14 @@ function child_theme_setup(){
     }
     //------ END RESPONSIVE MENU------------
     
+    
+    
     //* Reposition the primary navigation menu
     remove_action( 'genesis_after_header', 'genesis_do_nav' );
     add_action( 'genesis_before_header', 'genesis_do_nav' );
 
+    
+    
     // ----REGISTER WIDGETS -------
     genesis_register_sidebar( array(
         'id' => 'home-video-slider',
@@ -92,6 +115,8 @@ function child_theme_setup(){
         'description' => 'Widget Area to hold Home Page Photo Slider ',
     ));
     // -----END WIDGETS ------
+    
+    
     
     // -----REGISTER CUSTOM SIDEBARS
     
@@ -167,6 +192,8 @@ function child_theme_setup(){
     }
     
     //----END SIDEBARS ------
+    
+    
     
     //-----HEADER Customization------
     remove_action( 'genesis_header', 'genesis_do_header' );
