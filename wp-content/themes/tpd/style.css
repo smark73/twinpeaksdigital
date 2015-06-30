@@ -182,6 +182,30 @@ div.client-strip img{
     height:auto;
 }
 
+p.copyright{
+    padding:10px 0;
+    line-height: 2;
+}
+.copyright a{
+    color:#e2aa33;
+}
+.ftr-search{
+    margin:auto;
+    text-align:left;
+    border:1px solid transparent;
+    height:52px;
+}
+
+.ftr-search form input[type="search"],
+.ftr-search form input[type="submit"]{
+    display:inline-block;
+}
+.ftr-search form input[type="search"]{
+    width:60%;
+    height:50px;
+
+}
+
 /* ## Typographical Elements
 --------------------------------------------- */
 

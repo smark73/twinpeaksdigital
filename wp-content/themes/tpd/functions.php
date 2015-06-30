@@ -214,16 +214,29 @@ function child_theme_setup(){
     }
      //-----END HEADER Customization-------
     
+    
+    
     // FOOTER Customization
     remove_action( 'genesis_footer', 'genesis_do_footer' );
     add_action( 'genesis_footer', 'child_custom_footer' );
     function child_custom_footer() {
         ?>
-        <p class="copyright">
-            &copy; Copyright 2015 <a href="http://twinpeaksdigital.com/">Twin Peaks Digital</a> &middot; All Rights Reserved &middot; An <a href="http://ambitionsweb.com" target="_blank" title="Ambitions Website Design">Ambitions Web</a> Project
-        </p>
+        <div class="two-thirds first">
+            <p class="copyright">
+                <?php echo do_shortcode( '[footer_copyright]');?> <a href="http://twinpeaksdigital.com/">Twin Peaks Digital</a> &middot; All Rights Reserved
+                <br/>
+                An <a href="http://ambitionsweb.com" target="_blank" title="Ambitions Website Design">Ambitions Web</a> Project
+            </p>
+        </div>
+        <div class="ftr-search one-third">
+            <?php
+                get_search_form();
+            ?>
+        </div>
         <?php
     }
+     //-----END FOOTER Customization-------
+
     
     // GALLERY PAGE WIDTH for Tiled Gallery
     function gallery_page_content_width() {
@@ -233,6 +246,8 @@ function child_theme_setup(){
         }
     }
     add_action( 'get_header', 'gallery_page_content_width' );
+    
+    
     
     // CUSTOMIZE GRID LOOP
     // http://www.billerickson.net/a-better-and-easier-grid-loop/

@@ -120,4 +120,25 @@ function child_home_loop() {
     <?php
 }
 
+
+// footer scripts
+    // add Google "sitelinks search box"
+add_action('genesis_after_footer', 'add_scripts_to_btm');
+function add_scripts_to_btm() {
+    ?>
+    <script type="application/ld+json">
+    {
+       "@context": "http://schema.org",
+       "@type": "WebSite",
+       "url": "https://twinpeaksdigital.com",
+       "potentialAction": {
+         "@type": "SearchAction",
+         "target": "http://twinpeaksdigital.com/?s={search_term_string}",
+         "query-input": "required name=search_term_string"
+       }
+    }
+    </script>
+    <?php
+}
+
 genesis();
