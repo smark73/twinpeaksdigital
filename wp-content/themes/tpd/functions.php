@@ -252,7 +252,7 @@ function child_theme_setup(){
             <p class="copyright">
                 <?php echo do_shortcode( '[footer_copyright]');?> <a href="http://twinpeaksdigital.com/">Twin Peaks Digital</a> &middot; All Rights Reserved
                 <br/>
-                An <a href="http://ambitionsweb.com" target="_blank" title="Ambitions Website Design">Ambitions Web</a> Project
+                A <a href="http://denvermediapros.com" target="_blank" title="Denver Media Pros">Denver Media Pros</a> Project
             </p>
         </div>
         <div class="ftr-search one-third">
