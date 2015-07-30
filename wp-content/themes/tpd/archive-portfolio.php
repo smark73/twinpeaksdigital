@@ -79,7 +79,7 @@ add_action( 'genesis_entry_footer', 'tpd_do_post_title' );
 
 
 //add/modify the microdata rich snippets
-add_filter( 'genesis_attr_entry-content', 'genesis_attributes_video_mdata');
+add_filter( 'genesis_attr_entry', 'genesis_attributes_video_mdata');
 function genesis_attributes_video_mdata( $attributes ){
     $attributes['itemtype'] = 'http://schema.org/VideoObject';
     $attributes['itemscope'] = 'itemscope';
@@ -91,7 +91,7 @@ function genesis_attributes_videohdr_mdata( $attributes ){
     $attributes['itemscope'] = 'itemscope';
     return $attributes;
 }
-add_filter( 'genesis_attr_content', 'genesis_attributes_videogallery_mdata');
+add_filter( 'genesis_attr_body', 'genesis_attributes_videogallery_mdata');
 function genesis_attributes_videogallery_mdata( $attributes ){
     $attributes['itemtype'] = 'http://schema.org/VideoGallery';
     return $attributes;
