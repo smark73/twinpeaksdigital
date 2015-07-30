@@ -28,6 +28,9 @@ function tpd_portfolio_video() {
                     <meta itemprop="embedURL" content="https://vimeo.com/' . $video[0] . '" />
                     <meta itemprop="creator" content="Matt Nelson" />
                     <meta itemprop="producer" content="Twin Peaks Digital" />
+                    <meta itemprop="description" content="Video Production" />
+                    <meta itemprop="uploadDate" content="" />
+                    <meta itemprop="thumbnailUrl" content="http://twinpeaksdigital.com/media/video-thumb.jpg" />
                     <iframe src="//player.vimeo.com/video/' . $video[0] . '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen ></iframe>
             </div>';
 }

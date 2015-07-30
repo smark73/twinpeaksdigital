@@ -48,9 +48,16 @@ remove_action( 'genesis_entry_footer', 'genesis_entry_footer_markup_close', 15 )
  * Add Portfolio Video
  *
  */
-function tpd_portfolio_video() {
+
+function tpd_portfolio_video($video) {
     $video = get_post_custom_values('video_link');
     echo '<div class="resp-vid-wrap">
+                    <meta itemprop="embedURL" content="https://vimeo.com/' . $video[0] . '" />
+                    <meta itemprop="creator" content="Matt Nelson" />
+                    <meta itemprop="producer" content="Twin Peaks Digital" />
+                    <meta itemprop="description" content="Video Production" />
+                    <meta itemprop="uploadDate" content="" />
+                    <meta itemprop="thumbnailUrl" content="http://twinpeaksdigital.com/media/video-thumb.jpg" />
                     <iframe src="//player.vimeo.com/video/' . $video[0] . '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen ></iframe>
             </div></a>';
 }
@@ -91,11 +98,10 @@ function genesis_attributes_videohdr_mdata( $attributes ){
     $attributes['itemscope'] = 'itemscope';
     return $attributes;
 }
-add_filter( 'genesis_attr_body', 'genesis_attributes_videogallery_mdata');
+add_filter( 'genesis_attr_content', 'genesis_attributes_videogallery_mdata');
 function genesis_attributes_videogallery_mdata( $attributes ){
     $attributes['itemtype'] = 'http://schema.org/VideoGallery';
     return $attributes;
 }
-
 
 genesis();
