@@ -58,10 +58,9 @@ function genesis_attributes_video_mdata( $attributes, $video){
     return $attributes;
 }
 add_filter( 'genesis_attr_entry-title', 'genesis_attributes_videohdr_mdata');
-function genesis_attributes_videohdr_mdata( $attributes, $video){
-    global $video;
+function genesis_attributes_videohdr_mdata( $attributes){
     $attributes['itemscope'] = 'itemscope';
-    $attributes['itemtype'] = 'http://schema.org/VideoObject';
+    $attributes['itemprop'] = 'name';
     return $attributes;
 }
 
