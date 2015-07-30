@@ -25,6 +25,9 @@ remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 function tpd_portfolio_video() {
     $video = get_post_custom_values('video_link');
     echo '<div class="resp-vid-wrap">
+                    <meta itemprop="embedURL" content="https://vimeo.com/' . $video[0] . '" />
+                    <meta itemprop="creator" content="Matt Nelson" />
+                    <meta itemprop="producer" content="Twin Peaks Digital" />
                     <iframe src="//player.vimeo.com/video/' . $video[0] . '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen ></iframe>
             </div>';
 }
@@ -43,5 +46,20 @@ add_filter( 'genesis_pre_get_option_content_archive_thumbnail', '__return_false'
 remove_action( 'genesis_entry_content', 'genesis_do_post_content' );
 add_action('genesis_entry_footer', 'genesis_do_post_content');
 
+//add/modify the microdata rich snippets
+add_filter( 'genesis_attr_entry', 'genesis_attributes_video_mdata');
+function genesis_attributes_video_mdata( $attributes, $video){
+    global $video;
+    $attributes['itemscope'] = 'itemscope';
+    $attributes['itemtype'] = 'http://schema.org/VideoObject';
+    return $attributes;
+}
+add_filter( 'genesis_attr_entry-title', 'genesis_attributes_videohdr_mdata');
+function genesis_attributes_videohdr_mdata( $attributes, $video){
+    global $video;
+    $attributes['itemscope'] = 'itemscope';
+    $attributes['itemtype'] = 'http://schema.org/VideoObject';
+    return $attributes;
+}
 
 genesis();
