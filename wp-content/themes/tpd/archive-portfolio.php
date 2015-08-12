@@ -48,8 +48,7 @@ remove_action( 'genesis_entry_footer', 'genesis_entry_footer_markup_close', 15 )
  * Add Portfolio Video
  *
  */
-
-function tpd_portfolio_video($video) {
+function tpd_portfolio_video() {
     $video = get_post_custom_values('video_link');
     echo '<div class="resp-vid-wrap">
                     <meta itemprop="embedURL" content="https://vimeo.com/' . $video[0] . '" />
