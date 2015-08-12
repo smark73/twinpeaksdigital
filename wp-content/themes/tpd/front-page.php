@@ -25,6 +25,13 @@ add_action( 'genesis_after_header', 'child_home_loop' );
 //remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 );
 //remove_action( 'genesis_before_post_content', 'genesis_post_info' );
 
+// Only use pagination on custom loop
+remove_action( 'genesis_after_endwhile', 'genesis_posts_nav' );
+//customize the text in the pagination
+add_filter('genesis_next_link_text', 'our_next_pagination_text');
+function our_next_pagination_text( $text ){
+    return 'Next';
+}
 
         
 /**
@@ -95,21 +102,35 @@ function child_home_loop() {
         </div>
         <div class="home-btm-right two-thirds">
             <?php 
+                    //if query var is set use it; otherwise, initialize it to 1
+                    $page = get_query_var('page') ? get_query_var( 'page' ) : 1;
+                    //how many to show
+                    $display_count = 1;
+                    //calc offset
+                    $offset = ( $page - 1 ) * $display_count;
+            
                     $home_btm_post_args = array(
                         'post_type' => 'post',
-                        //'pagename' => 'home/home-btm-p'
-                        //'post_status' => 'publish',
-                        'posts_per_page' => 1,
+                        //'pagename' => 'home/home-btm-p',
+                        'orderby' => 'date',
+                        'order' => 'desc',
+                        'post_status' => 'publish',
+                        'offset' => $offset,
+                        'posts_per_page' => $display_count,
+                        'paged' => $page,
                     );
-                    $home_btm_post = new WP_Query( $home_btm_post_args );
-                    if( $home_btm_post->have_posts() ){
-                        while ( $home_btm_post->have_posts() ) {
-                            $home_btm_post->the_post();
+                    // in order to get pagination to work - must overwrite global wp_query here
+                    global $wp_query;
+                    $wp_query = new WP_Query( $home_btm_post_args );
+                    if( $wp_query->have_posts() ){
+                        while ( $wp_query->have_posts() ) {
+                            $wp_query->the_post();
                             global $post;
                             //the_post();
                             the_title('<h4>', '</h4>');
                             the_content();
                         }
+                        genesis_posts_nav();
                     }
                     wp_reset_query();
             ?>
@@ -137,6 +158,19 @@ function add_scripts_to_btm() {
          "query-input": "required name=search_term_string"
        }
     }
+    </script>
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            // genesis post nav for the btm post pagination "Next" doesn't work so hide it
+            jQuery('div.archive-pagination ul li.pagination-next').hide();
+            // genesis post nav for the btm post pagination doesn't change active btn correctly here so we do it
+            var curActivePg = <?php $cur_active_pg = get_query_var('page') ? get_query_var( 'page' ) : 1; echo $cur_active_pg;?>;
+            if(curActivePg != 1){
+                //change active btn from #1 to this one
+                jQuery('div.archive-pagination ul li.active').removeClass('active');
+                jQuery('div.archive-pagination ul li a:contains("<?php echo $cur_active_pg; ?>")').parent().addClass('active');
+            }
+        });
     </script>
     <?php
 }
