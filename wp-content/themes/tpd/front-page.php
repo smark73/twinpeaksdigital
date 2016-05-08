@@ -46,7 +46,7 @@ function child_home_loop() {
                 <div class="home-top-post">
                     <?php 
                         $home_top_post_args = array(
-                            //'post_type' => 'page',
+                            'post_type' => 'page',
                             'pagename' => 'home'
                             //'post_status' => 'publish',
                             //'posts_per_page' => 1,
@@ -58,6 +58,8 @@ function child_home_loop() {
                                 global $post;
                                 echo get_the_content( $post->ID, 'home-top-post' );
                             }
+                        } else {
+                            echo "no posts";
                         }
                         wp_reset_query();
                     ?>
@@ -164,8 +166,8 @@ function add_scripts_to_btm() {
             // genesis post nav for the btm post pagination "Next" doesn't work so hide it
             jQuery('div.archive-pagination ul li.pagination-next').hide();
             // genesis post nav for the btm post pagination doesn't change active btn correctly here so we do it
-            var curActivePg = <?php $cur_active_pg = get_query_var('page') ? get_query_var( 'page' ) : 1; echo $cur_active_pg;?>;
-            if(curActivePg != 1){
+            var curActive_Pg = <?php $cur_active_pg = get_query_var('page') ? get_query_var( 'page' ) : 1; echo $cur_active_pg;?>;
+            if(curActivePg !== 1){
                 //change active btn from #1 to this one
                 jQuery('div.archive-pagination ul li.active').removeClass('active');
                 jQuery('div.archive-pagination ul li a:contains("<?php echo $cur_active_pg; ?>")').parent().addClass('active');
