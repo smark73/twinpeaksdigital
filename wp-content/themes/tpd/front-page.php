@@ -47,7 +47,8 @@ function child_home_loop() {
                     <?php 
                         $home_top_post_args = array(
                             'post_type' => 'page',
-                            'pagename' => 'home'
+                            //'pagename' => 'home'
+                            'post_name__in' => ['home', 'twin-peaks-digital'],
                             //'post_status' => 'publish',
                             //'posts_per_page' => 1,
                         );
