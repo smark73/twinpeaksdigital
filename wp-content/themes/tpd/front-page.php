@@ -72,8 +72,9 @@ function child_home_loop() {
                     genesis_widget_area( 'home-video-slider' );
 
                     $home_mid_post_args = array(
-                        //'post_type' => 'page',
-                        'pagename' => 'home/home-btm-p'
+                        'post_type' => 'page',
+                        //'pagename' => 'home/home-btm-p'
+                        'post_name__in' => ['home/home-btm-p', 'twin-peaks-digital/home-btm-p'],
                         //'post_status' => 'publish',
                         //'posts_per_page' => 1,
                     );
