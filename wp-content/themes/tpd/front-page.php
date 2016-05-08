@@ -59,7 +59,7 @@ function child_home_loop() {
                                 echo get_the_content( $post->ID, 'home-top-post' );
                             }
                         } else {
-                            echo "no posts";
+                            //echo "no posts";
                         }
                         wp_reset_query();
                     ?>
