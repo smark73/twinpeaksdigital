@@ -44,11 +44,17 @@ function child_home_loop() {
         <div class="home-top">
             <div class="home-top-left one-third first">
                 <div class="home-top-post">
-                    <?php 
+                    <?php
+
+                        global $post;
+                        // get slug of home page
+                        // in case someone changes permalink - which breaks the following fn's that rely on it
+                        $hp_slug = $post->post_name;
+
                         $home_top_post_args = array(
                             'post_type' => 'page',
-                            //'pagename' => 'home'
-                            'post_name__in' => ['home', 'twin-peaks-digital'],
+                            'pagename' => $hp_slug,
+                            //'post_name__in' => ['home', 'twin-peaks-digital'],
                             //'post_status' => 'publish',
                             //'posts_per_page' => 1,
                         );
@@ -56,7 +62,7 @@ function child_home_loop() {
                         if( $home_top_post->have_posts() ){
                             while ( $home_top_post->have_posts() ) {
                                 $home_top_post->the_post();
-                                global $post;
+                                //global $post;
                                 echo get_the_content( $post->ID, 'home-top-post' );
                             }
                         } else {
@@ -73,7 +79,8 @@ function child_home_loop() {
 
                     $home_mid_post_args = array(
                         'post_type' => 'page',
-                        'pagename' => 'home/home-btm-p'
+                        'pagename' => $hp_slug . '/home-btm-p',
+                        //'pagename' => 'home/home-btm-p'
                         //didnt work 'post_name__in' => ['home/home-btm-p', 'twin-peaks-digital/home-btm-p'],
                         //'post_status' => 'publish',
                         //'posts_per_page' => 1,
@@ -82,7 +89,7 @@ function child_home_loop() {
                     if( $home_mid_post->have_posts() ){
                         while ( $home_mid_post->have_posts() ) {
                             $home_mid_post->the_post();
-                            global $post;
+                            //global $post;
                             echo get_the_content( $post->ID, 'home-btm-post' );
                         }
                     }
