@@ -165,7 +165,7 @@ function add_scripts_to_btm() {
        "url": "https://twinpeaksdigital.com",
        "potentialAction": {
          "@type": "SearchAction",
-         "target": "http://twinpeaksdigital.com/?s={search_term_string}",
+         "target": "https://twinpeaksdigital.com/?s={search_term_string}",
          "query-input": "required name=search_term_string"
        }
     }
@@ -175,7 +175,7 @@ function add_scripts_to_btm() {
             // genesis post nav for the btm post pagination "Next" doesn't work so hide it
             jQuery('div.archive-pagination ul li.pagination-next').hide();
             // genesis post nav for the btm post pagination doesn't change active btn correctly here so we do it
-            var curActive_Pg = <?php $cur_active_pg = get_query_var('page') ? get_query_var( 'page' ) : 1; echo $cur_active_pg;?>;
+            var curActivePg = <?php $cur_active_pg = get_query_var('page') ? get_query_var( 'page' ) : 1; echo $cur_active_pg; ?>;
             if(curActivePg !== 1){
                 //change active btn from #1 to this one
                 jQuery('div.archive-pagination ul li.active').removeClass('active');

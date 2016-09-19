@@ -6,7 +6,7 @@ add_action( 'genesis_after_header', 'portfolio_intro' );
 function portfolio_intro(){
     ?>
     <div class="portfolio-intro">
-        <h3><span style="font-style:italic;color:#2095f2;">Experience Makes the Difference</span>  <span class="vert-sep">|</span>  For additional videos visit our <a href="https://vimeo.com/channels/42610" target="_blank" class="terracotta bold">Vimeo channel</a> or our <a href="http://www.youtube.com/user/twinpeaksdigital" target="_blank" class="terracotta bold">YouTube Channel</a></h3>
+        <h3><span style="font-style:italic;color:#2095f2;">Experience Makes the Difference</span>  <span class="vert-sep">|</span>  For additional videos visit our <a href="https://vimeo.com/channels/42610" target="_blank" class="terracotta bold">Vimeo channel</a> or our <a href="https://www.youtube.com/user/twinpeaksdigital" target="_blank" class="terracotta bold">YouTube Channel</a></h3>
     </div>
     <?php
 }
@@ -56,7 +56,7 @@ function tpd_portfolio_video() {
                     <meta itemprop="producer" content="Twin Peaks Digital" />
                     <meta itemprop="description" content="Video Production" />
                     <meta itemprop="uploadDate" content="" />
-                    <meta itemprop="thumbnailUrl" content="http://twinpeaksdigital.com/media/video-thumb.jpg" />
+                    <meta itemprop="thumbnailUrl" content="https://twinpeaksdigital.com/media/video-thumb.jpg" />
                     <iframe src="//player.vimeo.com/video/' . $video[0] . '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen ></iframe>
             </div></a>';
 }
